@@ -1,0 +1,22 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"name": "kz"
+		},
+		{
+			"id": 2,
+			"name": "cr"
+		}
+	],
+	"messages": [
+		{
+			"id": 1,
+			"content": "hello~, every one!"
+		},
+		{
+			"id": 2,
+			"content": "welcom to kuangzhuo's chat root!"
+		}
+	]
+}
