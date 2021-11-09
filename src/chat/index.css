@@ -2,5 +2,6 @@
   width: 800px;
   height: 600px;
   display: flex;
-  border-radius: 4px;
+  border-radius: 6px;
+  background-color: #fff;
 }

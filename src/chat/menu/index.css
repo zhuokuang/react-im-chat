@@ -1,5 +1,19 @@
 .menu {
   height: 100%;
   width: 200px;
+  color: #fff;
   background: #2e3238;
+  border-radius: 6px 0 0 6px;
+}
+.menu-header {
+  height: 49px;
+  line-height: 49px;
+  padding: 0 20px;
+  border-bottom: 1px solid #0d0e11;
+}
+.user-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #3f4653;
 }
