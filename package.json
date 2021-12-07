@@ -79,7 +79,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "prepare": "husky install",
-    "json-server": "json-server --watch __json-server-mock__/db.json --port 5000"
+    "json-server": "json-server --watch __json-server-mock__/db.json --port 5000 --middlewares ./__json-server-mock__/middleware.js"
   },
   "eslintConfig": {
     "extends": [
@@ -104,6 +104,7 @@
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
     "@types/react-router-dom": "^5.3.2",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "husky": "^6.0.0",
     "json-server": "^0.17.0",

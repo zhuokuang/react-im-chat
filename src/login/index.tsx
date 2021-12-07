@@ -1,24 +1,24 @@
+import { useCallback } from "react";
 import { useHistory } from "react-router";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { login } from "@/apis";
 import "./index.css";
-import { useCallback } from "react";
 
-export const Login = () => {
+const Login = () => {
   const history = useHistory();
 
   const onFinish = useCallback(
     (form) => {
-      history.push("/chat");
+      login({ ...form }).then((res) => {
+        console.log("login with", res.user);
+        history.push("/chat");
+      });
     },
     [history]
   );
   return (
-    <Form
-      className="login-wrap"
-      wrapperCol={{ offset: 10, span: 4 }}
-      onFinish={onFinish}
-    >
+    <Form className="login-wrap" onFinish={onFinish}>
       <Form.Item
         name="username"
         rules={[{ required: true, message: "Please input your Username!" }]}
@@ -32,13 +32,13 @@ export const Login = () => {
         name="password"
         rules={[{ required: true, message: "Please input your Password!" }]}
       >
-        <Input
+        <Input.Password
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
         />
       </Form.Item>
-      <Form.Item wrapperCol={{ offset: 10, span: 4 }}>
+      <Form.Item>
         <Button className="login-form-button" type="primary" htmlType="submit">
           login
         </Button>
@@ -46,3 +46,5 @@ export const Login = () => {
     </Form>
   );
 };
+
+export default Login;

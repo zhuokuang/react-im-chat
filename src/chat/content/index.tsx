@@ -6,7 +6,7 @@ interface ContentProps {
   messages: Message[];
 }
 
-export const Content = ({ messages }: ContentProps) => {
+export const Content = ({ messages = [] }: ContentProps) => {
   const handleLogout = useCallback(() => {}, []);
 
   return (
@@ -19,7 +19,7 @@ export const Content = ({ messages }: ContentProps) => {
       </div>
       <div className="msg-list">
         {messages.map((message) => (
-          <div className="msg-item">
+          <div key={message.id} className="msg-item">
             <div className="msg-time"></div>
             <div className="msg-text">{message.content}</div>
           </div>

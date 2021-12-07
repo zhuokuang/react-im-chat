@@ -5,7 +5,7 @@ import { User, Message } from "@/typings";
 import { getUsers, getMessage } from "@/apis";
 import "./index.css";
 
-export const Chat = () => {
+const Chat = () => {
   const [userList, setUserList] = useState<User[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   useEffect(() => {
@@ -23,3 +23,5 @@ export const Chat = () => {
     </div>
   );
 };
+
+export default Chat;

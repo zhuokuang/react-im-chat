@@ -1,4 +1,3 @@
-// @ts-ignore
 import { request } from "@/utils/request";
 // @ts-ignore
 import { Message } from "@/typings/message";
