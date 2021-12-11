@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -8,10 +8,17 @@ import "./index.css";
 const Login = () => {
   const history = useHistory();
 
+  useEffect(() => {
+    if (window.localStorage.getItem("__login_with_token__")) {
+      history.push("/chat");
+    }
+  }, [history]);
+
   const onFinish = useCallback(
     (form) => {
       login({ ...form }).then((res) => {
         console.log("login with", res.user);
+        window.localStorage.setItem("__login_with_token__", "RANRAN");
         history.push("/chat");
       });
     },
