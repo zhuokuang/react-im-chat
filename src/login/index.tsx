@@ -2,23 +2,21 @@ import { useCallback, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { login } from "@/apis";
+import { login, isLogin } from "@/utils/auth";
 import "./index.css";
 
 const Login = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (window.localStorage.getItem("__login_with_token__")) {
+    if (isLogin()) {
       history.push("/chat");
     }
   }, [history]);
 
   const onFinish = useCallback(
     (form) => {
-      login({ ...form }).then((res) => {
-        console.log("login with", res.user);
-        window.localStorage.setItem("__login_with_token__", "RANRAN");
+      login({ ...form }).then(() => {
         history.push("/chat");
       });
     },

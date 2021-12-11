@@ -1,6 +1,7 @@
 import { Message } from "@/typings";
 import { useCallback, useEffect } from "react";
 import { useHistory } from "react-router";
+import { isLogin, logout } from "@/utils/auth";
 import "./index.css";
 
 interface ContentProps {
@@ -11,13 +12,13 @@ export const Content = ({ messages = [] }: ContentProps) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!window.localStorage.getItem("__login_with_token__")) {
+    if (!isLogin()) {
       history.replace("./login");
     }
   }, [history]);
 
   const handleLogout = useCallback(() => {
-    window.localStorage.removeItem("__login_with_token__");
+    logout();
     history.replace("./login");
   }, [history]);
 
